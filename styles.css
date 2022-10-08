@@ -48,16 +48,13 @@ table {
 }
 
 /* End of Meyer's Reset */
-.header, .body, .right-sidebar {
-border:0.1px solid black;
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("fonts/Roboto-Regular.ttf");
 }
 
-@font-face {
-    font-family: "Roboto-Light";
-    src: url("fonts/Roboto-Light.ttf");
-}
 body {
-	font-family: 'Roboto-Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Roboto-Regular', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	height:100vh;
 	
 	display:grid;
@@ -79,8 +76,8 @@ body {
 }
 
 .dashboard-logo img {
-	max-width:9rem;
-	padding:8px;
+	max-width:18rem;
+	padding:16px 8px;
 }
 
 .left-sidebar-link-container {
@@ -94,7 +91,8 @@ body {
 	background-color:rgba(0,0,0, .5);
 	padding-left:8px;
 	padding-bottom:8px;
-	font-weight:600;
+	font-weight:1000;
+	font-size:1.25rem;
 	display:grid;
 	align-items:center;
 }
@@ -104,26 +102,211 @@ body {
 	grid-row: 1 / 1;
 
 	display:grid;
-	grid-template-columns: 4fr 1fr;
+	grid-template-columns: 2fr 1fr;
 	grid-template-rows: 2fr 3fr;
+
+	box-shadow: 0 7.5px 5px #c7c6c6;
+	position:relative;
 }
 
-
-.header img {
-	max-width:4rem;
+.search {
+	display:flex;
+	align-items:center;
+	gap:8px;
+	padding: 16px 24px;
+}
+.search label img {
+	width:2rem;
+	
+}
+.search input {
+	flex:.75;
+	border-radius:20px;
+	border-width:1px;
+	padding:4px;
+	margin-bottom:4px;
 }
 
+.profile-container {
+	display:flex;
+	justify-content:end;
+	gap:16px;
+	padding-right:16px;
+	padding-top:8px;
+}
 
+.profile-container .profile img {
+	border-radius:100%;
+	width:5rem;
+	height:5rem;
+	object-fit:cover;
+}
+.profile-container .notification img {
+	width:2.5rem;
+}
+
+.profile-container .notification, .profile-container a .profile {
+	padding-top:8px;
+}
+
+.profile-container a .profile {
+	font-weight:600;
+	padding-top:12px;
+	color:black;
+	font-size:1.25rem;
+	padding-right:8px;
+}
+
+.profile-container a {
+	text-decoration:none;
+}
+
+.welcome {
+	display:grid;
+	grid-template-columns: 1fr 6fr;
+	padding-left:32px;
+	padding-bottom: 16px;
+}
+
+.welcome img {
+	border-radius:100%;
+	width:8rem;
+	height:8rem;
+	object-fit:cover;
+}
+
+.welcome h1 {
+	font-size:1.75rem;
+	font-weight:1000;
+	padding-top:24px;
+}
+
+.bottom-btn-container {
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr;
+	align-items:center;
+	column-gap:8px;
+	padding-bottom:12px;
+	
+}
+
+.bottom-header-btn {
+	height:2rem;
+	max-width:150px;
+	border-radius:100px;
+	background-color:black;
+	color:white;
+	font-size:1.1rem;
+}
+
+.body, .right-sidebar {
+	background-color:#f4f4f4;
+}
 
 .body {
 	grid-column: 2 / 3;
 	grid-row: 2 / 3;
+	display:grid;
+	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-rows:36px;
+	padding:24px;
+	gap:16px;
+	
+}
+
+.body .body-header {
+	grid-column: 1 / -1;
+	font-weight:600;
+	font-size:1.25rem;
+}
+
+
+.body .card {
+	display:grid;
+	grid-template-rows: 1fr 5fr 1fr;
+	border: .1px solid black;
+	padding:16px;
+	border-radius:20px;
+	color:transparent;
+	background-size:cover;
+	position:relative;
+}
+
+.body .card.etch-a-sketch:before {
+    background-image: url("images/etchasketch.jpg");
+}
+
+.body .card.landing-page {
+    background-image: url("images/landingpage.jpg");	
+}
+
+.body .card.signup-form {
+    background-image: url("images/signupform.jpg");
+}
+
+.body .card.calculator {
+    background-image: url("images/calculator.jpg");
+}
+.body .card:hover {
+	background-image: none;
+	background-color:white;
+	color:black;
+}
+
+.body .card .link-container {
+	display:flex;
+	justify-content:end;
+	gap:8px;
+}
+
+.body .card .card-header {
+	font-size:1.25rem;
 }
 
 .right-sidebar {
 	grid-column: 3 / 4;
 	grid-row: 2 / 3;
+
+	display:grid;
+	grid-template-rows: 1fr 1fr;
+	padding:24px;
+	gap:48px;
 }
+
+.announce, .trending {
+	display:grid;
+	grid-template-rows:1fr 6fr;
+}
+
+.announce-title, .trending-title { 
+	padding-bottom:16px;
+	font-weight:600;
+	font-size:1.25rem;
+}
+
+.announce-body{
+	border: .1px solid black;
+	padding:16px;
+	display:grid;
+	grid-template-rows: repeat(auto-fit, 1fr);
+	border-radius:20px;
+	background-color:white; 
+}
+
+.trending-body{
+	border: .1px solid black;
+	padding:16px;
+	display:flex;
+	flex-direction:column;
+	gap:16px;
+	border-radius:20px;
+	background-color:white; 
+}
+
+
+
+
+
 
 
 
